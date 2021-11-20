@@ -5,7 +5,13 @@ func routes(_ app: Application) throws {
         return "It works!"
     }
 
-    app.get("hello") { req -> String in
-        return "Hello, world!"
-    }
+	app.get("_ah", "health") { request -> String in
+		print("All - /_ah/health route handler...")
+		return "OK"
+	}
+
+	app.get("hello") { request -> String in
+		print("GET - /hello route handler...")
+		return "Hello from Vapor on App Engine"
+	}
 }
